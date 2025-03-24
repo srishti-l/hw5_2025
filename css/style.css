@@ -1,3 +1,4 @@
+/* add keyframes animation to grow from initial width and opacity to final */
 @keyframes grow {
     from {
         width: 25px;
@@ -11,32 +12,38 @@
 
 }
 
+/* appky keyframes animation on logo */
 #logo {
     animation-name: grow;
     animation-duration: 5s;
 }
 
+/* apply font settings and background image/color properties */
 body {
     font-family: "Poppins", serif;
     background-image: url("/images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
 
+/* add flex properties to header */
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* add flex properties to navigation links */
 .nav_links {
     display: flex;
     flex-direction: column;
 }
 
+/* ensure that color on links remains consistent after link is visited */
 a, a:visited {
     color: inherit;
 }
 
+/* add styling properties to header children within card class */
 .card > header {
     background-color: #288088;
     border: solid 2px #45ADAD;
@@ -45,6 +52,8 @@ a, a:visited {
     border-top-right-radius: 50px;
 }
 
+/* add styling properties to overall card class to accurately round borders
+additionally, add flex display to card class */
 .card {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -54,50 +63,60 @@ a, a:visited {
     flex-direction: column;
 }
 
+/* add flex properties to pricing class */
 .pricing {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* add border and other styling properties to images within the gallery class */
 .gallery img{
     border: solid 10px #50C7C7; 
     margin: 10px;
     width: 300px;
 }
 
+/* add flex display and wrapping properties to gallery class */
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+/* introduce large screen view with media query */
 @media screen and (min-width:900px) {
+
+    /* adjust flex-direction for header for proper alignment */
     header {
         flex-direction: row;
         justify-content: space-between;
     }
 
+    /* create a fixed header using position */
     body > header {
         position: fixed;
         top: 0px;
         width: 100%;
     }
 
+    /* add margin to avoid overlap of content within main */
     main {
         margin-top: 100px;
     }
 
-
+    /* make navigation links appear on the far right of the page */
     .nav_links {
         flex-direction: row;
         justify-content: flex-end;
     }
 
+    /* add flex size of 275px to card class */
     .card {
         flex: 0 0 275px;
     }
 
+    /* adjust flex properties for pricing class */
     .pricing {
         flex-direction: row;
         justify-content: center;
@@ -106,42 +125,54 @@ a, a:visited {
     
 }
 
+/* introduce reduced motion view with media query */
 @media (prefers-reduced-motion) {
+
+    /* remove animation for logo */
     #logo {
         animation: none;
     }
 }
 
+/* introduce print view with media query for portrait mode */
 @media (orientation: portrait) {
+
+    /* adjust font and image settings */
     body {
         font-family: "Arial", Helvetica;
         background-image: none;
     }
 
+    /* adjust flex properties for navigation links to ensure proper alignment and spacing */
     .nav_links {
         flex-direction: row;
         justify-content: space-between;
         gap: 125px;
     }
 
+    /* adjust pricing class flex properties to appear at bottom of page  */
     .pricing {
         flex-direction: row;
         align-items: flex-end;
     }
 
+    /* add border styling properties and flex basis for card class */
     .card {
         border: 2px solid #45ADDD;
         flex-basis: 325px;
     }
 
+    /* remove gallery id from view */
     #gallery {
         display: none;
     }
 
+    /* remove gallery class from view */
     .gallery {
         display: none;
     }
 
+    /* add thumbs up to the second li item of each card within the card class */
     .card li:nth-child(2)::after {
        content: "👍";
     }
